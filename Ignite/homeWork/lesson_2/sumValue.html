@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    ###Задача 1.
+    Напишите функцию, которая принимает 1 параметр.
+            При первом вызове она его запоминает, при втором - суммирует переданный параметр с параметром, переданным при предыдущем вызове.
+
+            Например:
+    sum(3) = 3
+    sum(5) = 8
+    sum(228) = 236
+```
+*/
+
+        function sum (value) {
+            var temp = value, res;
+
+            sum = function() {
+               if (arguments[0]){
+                   res = arguments[0]}
+               else res = 0;
+                return temp = temp + res;
+            };
+            return sum();
+        }
+
+        alert(sum(3));
+        alert(sum(5));
+        alert(sum(228));
+
+
+</script>
+
+</body>
+</html>
