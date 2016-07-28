@@ -14,9 +14,9 @@
  */
 
     function add(value) {
-        add.currentCount = value;
+        add.value = value;
         return function(value) {
-            alert(add.currentCount+value);
+            alert(add.value+value);
         }
     }
     add(3)(4);
