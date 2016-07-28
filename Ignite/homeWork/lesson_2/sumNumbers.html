@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+/*
+ ###Задача 3.
+ Напишите функцию, которая складывает числа при двойном вызове.
+ Например: add(3)(4)  // 7
+ */
+
+    function add(value) {
+        add.currentCount = value;
+        return function(value) {
+            alert(add.currentCount+value);
+        }
+    }
+    add(3)(4);
+
+</script>
+</body>
+</html>
