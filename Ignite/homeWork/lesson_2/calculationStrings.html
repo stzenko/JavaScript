@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    ###Задача 2.
+    Создайте функцию obj, которая принимает один аргумент (объект) и считает количество строк в объекте.
+     Например:
+     ```
+     obj({
+     first: "1",
+     second: "2",
+     third: false,
+     fourth: ["anytime",2,3,4],
+     fifth:  null
+     })
+     //возвращает 3
+     ```
+*/
+function strCount(obj) {
+    var i=0;
+    for(var prop in obj) {
+            var s= typeof(obj[prop]);
+            if ((s === "string")) {
+                //alert(s);
+                i++;
+            }
+            else if (s === "object") {
+                i+=strCount(obj[prop])
+                }
+            }
+        return i;
+}
+
+    var obj = {};
+
+    obj.first = "1";
+    obj.second = "2";
+    obj.third = false;
+    obj.fourth =["anytime",2,3,4,"str"];
+    obj.fifth = null;
+    obj.fourtsh =["anytime",2,"str",3];
+
+    var res = strCount(obj);
+    alert(res);
+
+</script>
+</body>
+</html>
