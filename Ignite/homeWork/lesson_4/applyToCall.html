@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*
+
+    ###Задача 1
+    Представьте, что в JavaScript нет метода call, есть только метод apply. Используя apply, напишите метод call.
+   */
+
+function myCall() {
+    alert(arguments.splice = [].splice());
+
+};
+myCall();
+function sayHi(name,age) {
+    alert('Hello, my name is ' + name +"   "+ age );
+};
+
+var user1 = {
+    name: 'Vasya',
+    age: 25
+};
+
+
+//sayHi.call(user1, user1.name, user1.age); // call --> аргументы функции sayHi в виде списка
+sayHi.apply(user1,[user1.name, user1.age]); // apply --> аргументы функции sayHi в виде массива
+
+
+</script>
+</body>
+</html>
