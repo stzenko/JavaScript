@@ -27,15 +27,15 @@ runString(arg, obj)              // we expect it should return 2 which is a resu
 
     function runString(arg, obj) {
 
-        var sum = new Function(obj.name, obj.funk);
-        alert(sum(arg))
+        var func = new Function(obj.name, obj.func);
+        alert(func(arg))
 
     }
     var val = 16;
     var obj = {};
 
     obj.name = "num";
-    obj.funk = "return Math.sqrt(num)";
+    obj.func = "return Math.sqrt(num)";
 
     runString(val,obj)
 
