@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*###Задача 1
+    Напишите функцию sum, которая будет работать как показано в примере ниже:
+
+sum(1)(2) == 3; // 1 + 2
+sum(1)(2)(3) == 6; // 1 + 2 + 3
+sum(5)(-1)(2) == 6
+sum(6)(-1)(-2)(-3) == 0
+sum(0)(1)(2)(3)(4)(5) == 15
+    Количество скобок может быть любым.
+*/
+
+    function sum(value) {
+
+        var res = value;
+
+        function add(value) {
+            res += value;
+            return add;
+        }
+
+        add.toString = function () {
+            return res;
+        };
+
+    return add;
+    }
+
+    alert(sum(3)(4)(6)(15));
+    alert(sum(1)(2));
+    alert(sum(1)(2)(3));
+    alert(sum(5)(-1)(2));
+    alert(sum(6)(-1)(-2)(-3));
+    alert(sum(0)(1)(2)(3)(4)(5));
+
+</script>
+</body>
+</html>
