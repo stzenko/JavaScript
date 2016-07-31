@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*###Задача 1
+
+     Напишите интерфейс, который принимает математическое выражение (в prompt) и результат его вычисления через eval.
+     При ошибке нужно выводить сообщение и просить переввести выражение.
+     Ошибкой считается не только некорректное выражение, такое как 2+, но и выражение, возвращающее NaN, например 0/0.
+     */
+
+    function prom() {
+
+    try{
+        var res;
+    var str = prompt("Введіть вираз: ", "");
+    res = eval(str);
+
+    if (isNaN(res) || res === undefined) {
+        throw new SyntaxError("");
+    }
+    alert(res);
+    }
+    catch (e) {
+    var message = 'Вираз не коректний! Введіть ще раз!';
+        alert(message);
+        prom(message);
+}
+
+    }
+    prom()
+
+</script>
+</body>
+</html>
