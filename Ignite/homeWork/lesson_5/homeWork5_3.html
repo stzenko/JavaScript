@@ -17,7 +17,8 @@
       var i = 10;
       var timerId = setInterval(function() {
           console.log(i);
-          if (i == 0) clearInterval(timerId);
+          if (i == 0) {clearInterval(timerId);
+          console.log("Відлік закінчено")}
           i--;
       }, 1000)
 
