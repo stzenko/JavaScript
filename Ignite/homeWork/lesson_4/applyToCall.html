@@ -12,23 +12,19 @@
     Представьте, что в JavaScript нет метода call, есть только метод apply. Используя apply, напишите метод call.
    */
 
-function myCall() {
-    alert(arguments.splice = [].splice());
-
+var obj = {
+    "name": "Zenovii",
+    "age": 23
 };
-myCall();
-function sayHi(name,age) {
-    alert('Hello, my name is ' + name +"   "+ age );
+Function.prototype.myCall = function() {
+    var context = arguments[0],
+            arr = [].slice.apply(arguments, [1]);
+    return this.apply(context, arr);
 };
-
-var user1 = {
-    name: 'Vasya',
-    age: 25
+function greet(arg1, arg2) {
+    return this[arg1] + " " + this[arg2];
 };
-
-
-//sayHi.call(user1, user1.name, user1.age); // call --> аргументы функции sayHi в виде списка
-sayHi.apply(user1,[user1.name, user1.age]); // apply --> аргументы функции sayHi в виде массива
+alert(greet.myCall(obj, 'name', 'age'));
 
 
 </script>
