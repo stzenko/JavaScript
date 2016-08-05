@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- ###Задача 1.
+     Создайте страницу с 3 элементами div. Напишите сценарий, который будет произвольно менять положение этиъ элементов на странице каждую секунду.
+ -->
+
+    <style>
+
+        .standard {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+
+        .red {
+            background-color: red;
+            left: 100px;
+        }
+        .blue {
+            background-color: blue;
+            left: 200px;
+        }
+        .green {
+            background-color: green;
+            left: 300px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+<script>
+    window.onload = function() {
+        var koordX = 1000;
+        var koordY = 500;
+
+        function showCount() {
+
+            var red = document.getElementsByClassName('red');
+            var blue = document.getElementsByClassName('blue');
+            var green = document.getElementsByClassName('green');
+
+            for (var i=0;;i++) {
+
+                koordXr = Math.random()*koordX;
+                koordYr = Math.random()*koordY;
+                red[i].style.left = koordXr + 'px';
+                red[i].style.top = koordYr + 'px';
+
+                koordXg = Math.random()*koordX;
+                koordYg = Math.random()*koordY;
+                green[i].style.left = koordXg + 'px';
+                green[i].style.top = koordYg + 'px';
+
+                koordXb = Math.random()*koordX;
+                koordYb = Math.random()*koordY;
+                blue[i].style.left = koordXb + 'px';
+                blue[i].style.top = koordYb + 'px';
+
+            }}
+
+        setInterval(showCount, 1000);
+
+
+
+    }
+</script>
+
+<div class="standard red"></div>
+<div class="standard blue"></div>
+<div class="standard green"></div>
+
+</body>
+</html>
