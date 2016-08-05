@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    ###Задача 1.
+Разработайте страницу, на которой должен быть размещен DIV с высотой и шириной в 25 пикселей.
+Реализуйте обработчики событий таким образом, что бы при нажатии на кнопки со стрелками DIV перемещался
+в соответствующие стрелками направлениям на 10 пикселей.
+    -->
+
+    <style>
+        .standard {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            background: red;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            document.addEventListener('keydown', function (e) {
+
+                var koordX = 10;
+                var koordY = 10;
+
+                var standard = document.getElementsByClassName('standard');
+
+                for (var i = 0;; i++) {
+                    if (e.keyCode == 39) {
+                        koordX += koordX;
+                        standard[i].style.left = koordX + 'px';
+                    }
+                    else if (e.keyCode == 38) {
+                        koordY -= koordY;
+                        standard[i].style.top = koordY + 'px';
+                    }
+                    else if (e.keyCode == 37) {
+                        koordX -= koordX;
+                        standard[i].style.left = koordX + 'px';
+
+                    }
+                    else if (e.keyCode == 40) {
+                        koordY += koordY;
+                        standard[i].style.top = koordY + 'px';
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="standard"></div>
+
+</body>
+
+</html>
