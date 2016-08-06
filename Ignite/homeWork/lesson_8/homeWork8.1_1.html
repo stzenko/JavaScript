@@ -26,7 +26,6 @@
                 if((login.value.charAt(i)>="0")&&(login.value.charAt(i)<="9")){
                     login.style.background="red";
                 }
-                else login.style.background = "white";
             }
 
             var pass = document.getElementById("pass");
@@ -34,15 +33,13 @@
                 if(pass.value.charAt(i)=="$"){
                 pass.style.background="red";
                 }
-                else pass.style.background = "white";
             }
 
             var phone = document.getElementById("phone");
             for( var i =0; i< phone.value.length; i++) {
-                if ((phone.value.charAt(i) >= "0")&&(phone.value.charAt(i) <= "9")) {
-                    phone.style.background = "white";
+                if (!(phone.value.charAt(i) < "0")&&(phone.value.charAt(i) > "9")) {
+                    phone.style.background = "red";
                 }
-                else phone.style.background = "red";
             }
         }
     </script>
