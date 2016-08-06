@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    ###Задача 3.
+
+Создайте страницу-калькулятор.
+Разместите на странице два поля ввода и кнопки для арифметических операций над
+данными введенными в поля ввода. Реализуйте данную страницу двумя способами – с использованием модели DOM Level 0 (через атрибуты) и DOM Level 2.
+
+    -->
+
+    <script>
+
+        function sum() {
+            var number1 = document.getElementById("number1");
+            var number2 = document.getElementById("number2");
+            alert(+number1.value+ +number2.value)
+        }
+
+        function sub() {
+            var number1 = document.getElementById("number1");
+            var number2 = document.getElementById("number2");
+            alert(number1.value- number2.value)
+        }
+        function mul() {
+            var number1 = document.getElementById("number1");
+            var number2 = document.getElementById("number2");
+            alert(number1.value* number2.value)
+        }
+        function div() {
+            var number1 = document.getElementById("number1");
+            var number2 = document.getElementById("number2");
+            alert(number1.value/ number2.value)
+        }
+    </script>
+</head>
+
+<body>
+<p>
+    <button onclick='sum()'>+</button>
+    <button onclick='sub()'>-</button>
+    <button onclick='mul()'>*</button>
+    <button onclick='div()'>/</button>
+
+<p>Число 1:
+    <input type="text" id = "number1">
+    Число 2:
+    <input type="text" id = "number2">
+</p>
+
+
+</body>
+</html>
