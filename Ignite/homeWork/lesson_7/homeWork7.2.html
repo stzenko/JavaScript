@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Rabota L7 HW1</title>
+    <!-- Задача 2.
+    Создайте функцию positionAt(anchor, position, elem), которая позиционирует элемент elem, в зависимости от значения аргумента position: сверху ("top"), справа ("right") или снизу ("bottom"). Функция должна проводить позиционирование относительно элемента anchor. Для решения данной задачи Вам понадобится создать элемент anchor (тег а) и elem (тег div). -->
+
+    <style type="text/css">
+        a {
+            position: absolute;
+            left: 300px;
+            top: 200px;
+            width: 100px;
+            border: 1px solid green;
+        }
+        div {
+            position: absolute;
+            left: 150px;
+            height: 20px;
+            width: 70px;
+            background-color: lightgreen;
+        }
+        input {
+            position: absolute;
+            width: 60px;
+        }
+        #top {
+            left: 20px;
+            top: 20px;
+        }
+        #right {
+            left: 40px;
+            top: 50px;
+        }
+        #bottom {
+            left: 20px;
+            top: 80px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var anchor = document.querySelector('a');
+            var div = document.querySelector('div');
+            document.querySelector('#top').onclick = function positionAtTop() {
+                positionAt(anchor, 'top', div);
+            }
+            document.querySelector('#bottom').onclick = function positionAtBottom() {
+                positionAt(anchor, 'bottom', div);
+            }
+            document.querySelector('#right').onclick = function positionAtRight() {
+                positionAt(anchor, 'right', div);
+            }
+            function positionAt(anchor, position, elem) {
+                var anchorRect = anchor.getBoundingClientRect();
+                var divHeight = parseInt(window.getComputedStyle(elem).getPropertyValue('height'));
+                var divWidth = parseInt(window.getComputedStyle(elem).getPropertyValue('width'));
+                switch (position) {
+                    case 'top':
+                        elem.style.left = anchorRect.left + 'px';
+                        elem.style.top = anchorRect.top - divHeight + 'px';
+                        break;
+                    case 'bottom':
+                        elem.style.left = anchorRect.left + 'px';
+                        elem.style.top = anchorRect.bottom + 'px';
+                        break;
+                    case 'right':
+                        elem.style.left = anchorRect.right + 'px';
+                        elem.style.top = anchorRect.top + 'px';
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="top" value="Top">
+<input type="button" id="bottom" value="Bottom">
+<input type="button" id="right" value="Right">
+<a>I'm an anchor</a>
+<div>I'm a div</div>
+</body>
