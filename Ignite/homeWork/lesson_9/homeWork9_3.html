@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--###Задача 3.
+Создайте страницу с двумя полями ввода, кнопкой и элементом div с шириной и высотой 50px.
+Создайте сценарий, который по нажатию на кнопку будет перемещать div в координаты, указанные в полях ввода.
+В случае, если при нажатии кнопки хотя бы одно из полей ввода не заполнено, пользователь должен получить предупреждение,
+а событие click должно быть отменено.
+    -->
+    <style>
+         .div{
+            width: 50px;
+            height: 50px;
+            background: green;
+             position: absolute;
+
+        }
+    </style>
+    <script>
+
+            var xx = 50, yy = 50;
+
+            function clickHandler() {
+                var div = document.getElementsByClassName("div");
+                var x = document.getElementById("x").value;
+                var y = document.getElementById("y").value;
+                    if ((x == "") || (y == "")) {
+                        alert('Ви забули ввести координати');
+                    }
+                    else {
+                        for (var i=0;;i++) {
+                        div[i].style.left = +xx + +x+"px";
+                        div[i].style.top = +yy + +y+"px";
+                    }
+                }
+        }
+    </script>
+
+</head>
+<body>
+<p>Координата X:
+    <input type="text" id = "x">
+    Координата Y:
+    <input type="text" id = "y">
+    <button id='button' onclick='clickHandler()'>GO</button>
+</p>
+<div class="div"></div>
+</body>
+</html>
