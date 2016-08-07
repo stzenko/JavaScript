@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--###Задача 2.
+Создайте круг красного цвета с надписью "Скидка". Когда курсор пользователя будет приближаться к ней,
+"Скидка" должна от него "убегать", не давая пользователю нажать на красный круг.
+Если круг будет выйдет за одну из сторон экрана, то он должен, появится с противоположной стороны. -->
+    <style>
+
+
+        #runner {
+            position: relative;
+            left: 500px;
+            top: 200px;
+            text-align: center;
+            background-color: red;
+            height: 100px;
+            width: 100px;
+        }
+        span {
+            color: green;
+            padding-top: 30px;
+            display: inline-block;
+        }
+        div {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="runner">
+    <span>Скидка</span>
+</div>
+
+
+<script>
+    window.addEventListener("load", function () {
+        document.body.style.overflow = "hidden";                  //no more scroll
+        var cHeight = document.documentElement.clientHeight;      //document dimensions
+        var cWidth = document.documentElement.clientWidth;
+        var eps = 50;
+        var runner = document.getElementById("runner");
+        document.addEventListener('mousemove', function (e) {
+            var runner_pos = runner.getBoundingClientRect();
+            var runneX = runner_pos.left + 50;
+            var runnerY = runner_pos.top + 50;
+            if (Math.sqrt((e.offsetX - runneX) * (e.offsetX - runneX) +
+                            (e.offsetY - runnerY) * (e.offsetY - runnerY)) < 80) {
+                if (runneX >= cWidth - eps) {
+                    runner.style.left = eps / 10 + 'px';
+                }
+                if (runneX <= eps) {
+                    runner.style.left = (cWidth - 2 * eps) + 'px';
+                }
+                if (runnerY >= cHeight - eps) {
+                    runner.style.top = eps / 10 + 'px';
+                }
+                if (runnerY <= eps) {
+                    runner.style.top = (cHeight - 2 * eps) + 'px';
+                }
+                if (e.offsetX < runneX) {
+                    runner.style.left = (runner.offsetLeft + 10) + 'px';
+                }
+                if (e.offsetX > runneX) {
+                    runner.style.left = (runner.offsetLeft - 10) + 'px';
+                }
+                if (e.offsetY < runnerY) {
+                    runner.style.top = (runner.offsetTop + 10) + 'px';
+                }
+                if (e.offsetY > runnerY) {
+                    runner.style.top = (runner.offsetTop - 10) + 'px';
+                }
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
