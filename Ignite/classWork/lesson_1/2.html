@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    ###Задача 2.
+Создайте функцию isEmpty(obj), которая возвращает true, если в объекте нет свойств и false –
+если хоть одно свойство есть.
+-->
+
+</head>
+<body>
+<script>
+    var obj = {};
+    obj.name = "Вася";
+    //obj.age = 15;
+
+    function isEmpty(obj) {
+
+        for (var prop in obj) {
+            return false;
+        }
+            return true
+    }
+    alert(isEmpty(obj))
+</script>
+</body>
+</html>
